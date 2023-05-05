@@ -1,1 +1,6 @@
-fef
+name = input()
+print('Hello Teacher,', name, end='!')
+
+
+
+
