@@ -1,0 +1,59 @@
+class Bird:
+    def __init__(self, name, age, color):
+        self.name = name
+        self.age = age
+        self.color = color
+
+    def fly(self):
+        print(f"{self.name} is flying.")
+
+    def info(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Color: {self.color}")
+
+
+class Cage:
+    def __init__(self, cage_number, size):
+        self.cage_number = cage_number
+        self.size = size
+        self.bird = None
+
+    def add_bird(self, bird):
+        if self.bird is None:
+            self.bird = bird
+            print(f"{bird.name} has been added to Cage {self.cage_number}.")
+        else:
+            print(f"Cage {self.cage_number} is already occupied.")
+
+    def remove_bird(self):
+        if self.bird is not None:
+            bird_name = self.bird.name
+            self.bird = None
+            print(f"{bird_name} has been removed from Cage {self.cage_number}.")
+        else:
+            print(f"Cage {self.cage_number} is empty.")
+
+    def has_bird(self):
+        if self.bird is not None:
+            print(f"Cage {self.cage_number} contains a bird.")
+        else:
+            print(f"Cage {self.cage_number} is empty.")
+
+bird1 = Bird("Robin", 2, "red")
+bird2 = Bird("Sparrow", 1, "brown")
+cage1 = Cage(1, "small")
+cage2 = Cage(2, "large")
+
+cage1.add_bird(bird1)
+cage2.add_bird(bird2)
+cage1.add_bird(bird2)
+
+cage1.has_bird()
+cage2.has_bird()
+
+bird1.fly()
+
+cage1.remove_bird()
+
+cage1.has_bird()
